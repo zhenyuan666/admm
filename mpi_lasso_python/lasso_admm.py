@@ -18,34 +18,12 @@ def main():
     filename_b = main_folder + 'b' + str(i) + '.npy'
     b = np.load(filename_b)
     #
-    z, h = lasso_admm(A, b, 0.5)
-    #print('objective value is : ' + str(h['objval'][-1]))
+    z, h = lasso_admm(A, b)
+    print('objective value is : ' + str(objective(A, b, 0.5, z, z)))
     print('norm of x_hat is: ' + str(norm(z)))
 
-    K = len(h['objval'][np.where(h['objval']!=0)])
 
-    fig1 = plt.figure(1)
-    ax = fig1.add_subplot(111)
-    ax.plot(np.arange(K), h['objval'][:K],'k',ms=10,lw=2)
-    ax.set_ylabel('f(x^k) + g(z^k)')
-    ax.set_xlabel('iter (k)')
-
-    fig2 = plt.figure(2)
-    ax1 = fig2.add_subplot(211)
-    ax1.semilogy(np.arange(K),np.maximum(1e-8,h['r_norm'][:K]),'k',lw=2)
-    ax1.semilogy(np.arange(K),h['eps_pri'][:K],'k--',lw=2)
-    ax1.set_ylabel('||r||_2')
-
-    ax2 = fig2.add_subplot(212)
-    ax2.semilogy(np.arange(K),np.maximum(1e-8,h['s_norm'][:K]),'k',lw=2)
-    ax2.semilogy(np.arange(K),h['eps_dual'][:K],'k--',lw=2)
-    ax2.set_ylabel('||s||_2')
-    ax2.set_xlabel('iter (k)')
-
-    plt.show()
-
-
-def lasso_admm(A, b, mylambda, rho=1., rel_par=1., QUIET = False, MAX_ITER = 500, ABSTOL = 1e-6, RELTOL = 1e-4):
+def lasso_admm(A, b, mylambda = 0.5, rho=1., rel_par=1., QUIET = False, MAX_ITER = 500, ABSTOL = 1e-6, RELTOL = 1e-4):
     """
      Solve lasso problem via ADMM
     

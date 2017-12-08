@@ -11,10 +11,10 @@ np.random.seed(0)
 main_folder = '/global/cscratch1/sd/zhenyuan/mpi_svm_python/data1/'
 main_folder = '/global/cscratch1/sd/zhenyuan/mpi_svm_python/data24/'
 main_folder = '/Users/zhenyuanliu/Dropbox/fall2017/EE227BT/project/mpi_svm_python/data4/'
-main_folder = '/Users/zhenyuanliu/Dropbox/fall2017/EE227BT/project/mpi_svm_python/data1/'
-m = 12800   # number of rows
+#main_folder = '/Users/zhenyuanliu/Dropbox/fall2017/EE227BT/project/mpi_svm_python/data1/'
+m = 1280   # number of rows
 n = 100    # number of columns
-num_process = 1 # number of processes
+num_process = 4 # number of processes
 num_per_batch = int(m/num_process)
 #
 X = np.random.normal(0, 1, (int(1.2 * m), n))

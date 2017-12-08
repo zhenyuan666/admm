@@ -9,13 +9,13 @@ import scipy.io as sio
 main_folder = '/global/cscratch1/sd/zhenyuan/mpi_lasso_python/data1/'
 main_folder = '/global/cscratch1/sd/zhenyuan/mpi_lasso_python/data24/'
 main_folder = '/Users/zhenyuanliu/Dropbox/fall2017/EE227BT/project/mpi_lasso_python/data1/'
-main_folder = '/Users/zhenyuanliu/Dropbox/fall2017/EE227BT/project/mpi_lasso_python/data4/'
+#main_folder = '/Users/zhenyuanliu/Dropbox/fall2017/EE227BT/project/mpi_lasso_python/data4/'
 
 np.random.seed(0)
 
 m = 1280    # number of rows 128000
 n = 100      # number of columns 10000
-num_process = 4 # number of processes
+num_process = 1 # number of processes
 num_per_batch = int(m/num_process)
 
 A = np.random.normal(0, 1, (m, n))
