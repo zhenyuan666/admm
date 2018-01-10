@@ -1,5 +1,5 @@
 # admm
-EE227BT (Convex optimization) Fall 2017 project.
+This is the final project of EE227BT (Convex optimization) Fall 2017 at UC Berkeley.
 This project is largely based on the excellent paper of Boyd on ADMM:
 http://stanford.edu/~boyd/papers/admm_distr_stats.html.
 
